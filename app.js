@@ -1,6 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 
+require('./config/mongoose')
+
 const app = express()
 
 mongoose.connect('mongodb://localhost:expense_tracker')
