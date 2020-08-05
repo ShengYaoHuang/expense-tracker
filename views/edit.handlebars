@@ -1,0 +1,58 @@
+<div class="container mt-3">
+  <form action="/records/edit" method="POST">
+    <div class="row justify-content-start">
+      <div class="col-4">
+        <p class="text-right">*必填欄位</p>
+      </div>
+      <div class="col-4">
+        <h4>請修改你的支出</h4>
+      </div>
+    </div>
+    <div class="row justify-content-start align-items-center">
+      <div class="col-4">
+        <p class="text-right m-1">名稱 * :</p>
+      </div>
+      <div class="input-group col-4">
+        <input class="form-control" type="text" name="name">
+      </div>
+    </div>
+    <div class="row justify-content-start align-items-center mt-3">
+      <div class="col-4">
+        <p class="text-right m-1">日期 * :</p>
+      </div>
+      <div class="col-4">
+        <input type="date" name="date" value="2020-01-01" class="form-control">
+      </div>
+    </div>
+    <div class="row justify-content-start align-items-center mt-3">
+      <div class="col-4">
+        <p class="text-right m-1">類別 * :</p>
+      </div>
+      <div class="col-4">
+        <div class="input-group">
+          <select class="form-control" name="category">
+            <option selected>類別</option>
+            <option value="食品酒水">食品酒水</option>
+            <option value="行車交通">行車交通</option>
+            <option value="居家物業">居家物業</option>
+            <option value="休閒娛樂">休閒娛樂</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-start align-items-center mt-3">
+      <div class="col-4">
+        <p class="text-right m-1">金額 * :</p>
+      </div>
+      <div class="col-4">
+        <input type="text" class="form-control" name="amount">
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <button type="submit" class="btn btn-primary col-4">修改支出</button>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <a href="/" class="btn btn-outline-secondary">返回</a>
+    </div>
+  </form>
+</div>
