@@ -34,7 +34,7 @@
           <form action="/records/{{ this._id }}/edit" class="col-2 row justify-content-end">
             <button type="submit" class="btn btn-success">修改</button>
           </form>
-          <form action="/records/{{ this._id }}/delete" method="POST" class="col-2 row justify-content-end">
+          <form action="/records/{{ this._id }}?_method=DELETE" method="POST" class="col-2 row justify-content-end">
             <button type="submit" class="btn btn-danger">刪除</button>
           </form>
         </div>
