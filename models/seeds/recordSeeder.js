@@ -33,5 +33,8 @@ db.once('open', () => {
       date: "2020-08-01",
       amount: "25000"
     })
-  console.log('done')
+    .then(() => {
+      console.log('recordSeeder is done')
+      db.close()
+    })
 })

@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="form-group mt-5">
-        <select class="form-control">
+        <select class="form-control" name="category">
           <option selected>類別</option>
           <option value="食品酒水">食品酒水</option>
           <option value="行車交通">行車交通</option>
@@ -17,7 +17,7 @@
       <h4>總金額 :</h4>
     </div>
     <div class="col-5">
-      <h1 class="text-warning text-right">123456</h1>
+      <h1 class="text-warning text-right">{{ totalAmount }}</h1>
     </div>
   </div>
   <div class="row justify-content-center">
@@ -25,17 +25,17 @@
       {{#each records}}
       <li class="list-group-item">
         <div class="row align-items-center">
-          <i class="fas fa-utensils fa-3x col-1 align-item-center pl-1"></i>
+          <i class="{{#each category}}{{this}}{{/each}}fa-3x col-1 align-item-center pl-1"></i>
           <div class="col">
             <h4 class="mb-0">{{ this.name }}</h4>
             <p class="date mb-0">{{ this.date }}</p>
           </div>
-          <h3 class="col-2 m-0 text-center">{{ this.amount }}</h3>
+          <h3 class="col-2 m-0 pl-0 text-center">{{ this.amount }}</h3>
           <form action="/records/{{ this._id }}/edit" class="col-2 row justify-content-end">
-            <button type="submit" class="btn btn-success">修改</button>
+            <button type="submit" class="btn btn-outline-success">修改</button>
           </form>
           <form action="/records/{{ this._id }}?_method=DELETE" method="POST" class="col-2 row justify-content-end">
-            <button type="submit" class="btn btn-danger">刪除</button>
+            <button type="submit" class="btn btn-outline-danger">刪除</button>
           </form>
         </div>
       </li>
@@ -43,6 +43,6 @@
     </ul>
   </div>
   <div class="row justify-content-center mt-5">
-    <a href="/records/new" class="btn btn-primary col-6">新增支出</a>
+    <a href="/records/new" class="btn btn-outline-primary col-6">新增支出</a>
   </div>
 </div>
