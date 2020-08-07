@@ -7,16 +7,16 @@ const Category = require('../../models/category')
 router.get('/', (req, res) => {
   Category.find()
     .lean()
-    .then(categories => {
+    .then(category => {
       return Record.find()
         .lean()
         .sort({ date: "desc" })
-        .then(records => {
+        .then(record => {
           let totalAmount = 0
-          if (records.length !== 0) {
-            totalAmount = records.map(record => record.amount).reduce((a, b) => a + b)
+          if (record.length !== 0) {
+            totalAmount = record.map(record => record.amount).reduce((a, b) => a + b)
           }
-          res.render('index', { records, categories, totalAmount })
+          res.render('index', { record, category, totalAmount })
         })
         .catch(error => console.log(error))
     })
@@ -26,17 +26,17 @@ router.get('/', (req, res) => {
 router.get('/filter/:category', (req, res) => {
   Category.find()
     .lean()
-    .then(categories => {
+    .then(category => {
       return Record.find({ category: `${req.params.category}` })
         .lean()
         .sort({ date: "desc" })
-        .then(records => {
+        .then(record => {
           let totalAmount = 0
-          if (records.length !== 0) {
-            totalAmount = records.map(record => record.amount).reduce((a, b) => a + b)
+          if (record.length !== 0) {
+            totalAmount = record.map(record => record.amount).reduce((a, b) => a + b)
           }
           const params = req.params.category
-          res.render('index', { records, categories, totalAmount, params })
+          res.render('index', { record, category, totalAmount, params })
         })
         .catch(error => console.log(error))
     })
