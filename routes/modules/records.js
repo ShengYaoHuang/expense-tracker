@@ -5,7 +5,11 @@ const Record = require('../../models/record')
 const Category = require('../../models/category')
 
 router.get('/new', (req, res) => {
-  res.render('new')
+  return Category.find()
+    .lean()
+    .sort({ _id: 'asc' })
+    .then(category => res.render('new', { category }))
+    .catch(error => console.log(error))
 })
 
 router.post('/', (req, res) => {
@@ -17,10 +21,15 @@ router.post('/', (req, res) => {
 
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
-  return Record.findById(id)
+  Category.find()
     .lean()
-    .then(record => res.render('edit', { record }))
-    .catch(error => console.log(error))
+    .sort({ _id: 'asc' })
+    .then(category => {
+      return Record.findById(id)
+        .lean()
+        .then(record => res.render('edit', { record, category }))
+        .catch(error => console.log(error))
+    })
 })
 
 router.put('/:id', (req, res) => {

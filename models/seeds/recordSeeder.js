@@ -5,19 +5,19 @@ db.once('open', () => {
   Record.create(
     {
       name: "午餐",
-      category: "食品酒水",
+      category: "餐飲食品",
       date: "2020-08-08",
       amount: "60"
     },
     {
       name: "晚餐",
-      category: "食品酒水",
+      category: "餐飲食品",
       date: "2020-08-08",
       amount: "60"
     },
     {
       name: "捷運",
-      category: "行車交通",
+      category: "交通出行",
       date: "2020-08-08",
       amount: "120"
     },
@@ -29,7 +29,7 @@ db.once('open', () => {
     },
     {
       name: "租金",
-      category: "居家物業",
+      category: "家居物業",
       date: "2020-08-01",
       amount: "25000"
     })

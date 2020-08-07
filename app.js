@@ -7,11 +7,20 @@ const routes = require('./routes')
 require('./config/mongoose')
 const PORT = process.env.PORT || 3000
 const app = express()
+const Handlebars = require('handlebars')
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: 'handlebars' }))
 app.set('view engine', 'handlebars')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+
+Handlebars.registerHelper('ifEqual', function (category1, category2, options) {
+  if (category1 === category2) {
+    return options.fn(this)
+  } else {
+    return options.inverse(this)
+  }
+})
 
 app.use(routes)
 

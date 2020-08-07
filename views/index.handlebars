@@ -2,13 +2,16 @@
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="form-group mt-5">
-        <select class="form-control" name="category">
-          <option selected>類別</option>
-          <option value="食品酒水">食品酒水</option>
-          <option value="行車交通">行車交通</option>
-          <option value="居家物業">居家物業</option>
-          <option value="休閒娛樂">休閒娛樂</option>
+        {{!-- <form action="/filter/{{this.id}}"> --}}
+        <select class="form-control" name="category" onchange="location = this.value">
+          <option value="/" selected>類別</option>
+          <option value="/filter/餐飲食品" {{#ifEqual params '餐飲食品'}} selected {{/ifEqual}}>餐飲食品</option>
+          <option value="/filter/交通出行" {{#ifEqual params '交通出行'}} selected {{/ifEqual}}>交通出行</option>
+          <option value="/filter/家居物業" {{#ifEqual params '家居物業'}} selected {{/ifEqual}}>家居物業</option>
+          <option value="/filter/休閒娛樂" {{#ifEqual params '休閒娛樂'}} selected {{/ifEqual}}>休閒娛樂</option>
+          <option value="/filter/其他" {{#ifEqual params '其他'}} selected {{/ifEqual}}>其他</option>
         </select>
+        {{!-- </form> --}}
       </div>
     </div>
   </div>
@@ -25,8 +28,23 @@
       {{#each records}}
       <li class="list-group-item">
         <div class="row align-items-center">
-          <i class="{{#each category}}{{this}}{{/each}}fa-3x col-1 align-item-center pl-1"></i>
-          <div class="col">
+          {{#ifEqual this.category '餐飲食品'}}
+          <i class="fas fa-utensils fa-3x col-1 align-item-center pl-1"></i>
+          {{/ifEqual}}
+          {{#ifEqual this.category '交通出行'}}
+          <i class="fas fa-shuttle-van fa-3x col-1 align-item-center pl-1"></i>
+          {{/ifEqual}}
+          {{#ifEqual this.category '家居物業'}}
+          <i class="fas fa-home fa-3x col-1 align-item-center pl-1"></i>
+          {{/ifEqual}}
+          {{#ifEqual this.category '休閒娛樂'}}
+          <i class="fas fa-grin-beam fa-3x col-1 align-item-center pl-1"></i>
+          {{/ifEqual}}
+          {{#ifEqual this.category '其他'}}
+          <i class="fas fa-pen fa-3x col-1 align-item-center pl-1"></i>
+          {{/ifEqual}}
+
+          <div class="col ml-2">
             <h4 class="mb-0">{{ this.name }}</h4>
             <p class="date mb-0">{{ this.date }}</p>
           </div>
@@ -34,7 +52,8 @@
           <form action="/records/{{ this._id }}/edit" class="col-2 row justify-content-end">
             <button type="submit" class="btn btn-outline-success">修改</button>
           </form>
-          <form action="/records/{{ this._id }}?_method=DELETE" method="POST" class="col-2 row justify-content-end">
+          <form action="/records/{{ this._id }}?_method=DELETE" method="POST" class="col-2 row justify-content-end"
+            onsubmit="return confirm('確定刪除嗎？')">
             <button type="submit" class="btn btn-outline-danger">刪除</button>
           </form>
         </div>
