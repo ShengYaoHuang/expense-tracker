@@ -27,12 +27,11 @@ router.get('/:id/edit', (req, res) => {
     .then(category => {
       return Record.findById(id)
         .lean()
-        .then(record =>
+        .then(record => {
           res.render('edit', { record, category })
-        )
-        .catch(error => console.log(error))
+        })
     })
-
+    .catch(error => console.log(error))
 })
 
 router.put('/:id', (req, res) => {
