@@ -21,11 +21,11 @@ router.post('/', (req, res) => {
 
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
-  Category.find()
+  return Category.find()
     .lean()
     .sort({ _id: 'asc' })
     .then(category => {
-      return Record.findById(id)
+      Record.findById(id)
         .lean()
         .then(record => {
           res.render('edit', { record, category })
@@ -39,7 +39,7 @@ router.put('/:id', (req, res) => {
   return Record.findById(id)
     .then(record => {
       record = Object.assign(record, req.body)
-      return record.save()
+      record.save()
     })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))

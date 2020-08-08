@@ -31,10 +31,11 @@
       <div class="col-4">
         <div class="input-group">
           <select class="form-control" name="category">
-            <option value="{{ record.category }}" selected>{{ record.category }}</option>
-            {{#each category}}
-            <option value="{{this.name}}">{{this.name}}</option>
-            {{/each}}
+            <option {{#ifEqual record.category '餐飲食品'}}selected{{/ifEqual}}>餐飲食品</option>
+            <option {{#ifEqual record.category '交通出行'}}selected{{/ifEqual}}>交通出行</option>
+            <option {{#ifEqual record.category '家居物業'}}selected{{/ifEqual}}>家居物業</option>
+            <option {{#ifEqual record.category '休閒娛樂'}}selected{{/ifEqual}}>休閒娛樂</option>
+            <option {{#ifEqual record.category '其他'}}selected{{/ifEqual}}>其他</option>
           </select>
         </div>
       </div>
