@@ -1,4 +1,5 @@
 const express = require('express')
+const session = require('express-session')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
@@ -11,6 +12,13 @@ const Handlebars = require('handlebars')
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: 'handlebars' }))
 app.set('view engine', 'handlebars')
+
+app.use(session({
+  secret: 'ThisIsExpenseTrackerSecret',
+  resave: false,
+  saveUninitialized: true
+}))
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
