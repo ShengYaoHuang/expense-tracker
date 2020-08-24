@@ -5,6 +5,7 @@ const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const routes = require('./routes')
+const usePassport = require('./config/passport')
 require('./config/mongoose')
 const PORT = process.env.PORT || 3000
 const app = express()
@@ -29,6 +30,8 @@ Handlebars.registerHelper('ifEqual', function (category1, category2, options) {
     return options.inverse(this)
   }
 })
+
+usePassport(app)
 
 app.use(routes)
 
