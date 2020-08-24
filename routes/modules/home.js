@@ -5,10 +5,11 @@ const Record = require('../../models/record')
 const Category = require('../../models/category')
 
 router.get('/', (req, res) => {
+  const userId = req.user._id
   Category.find()
     .lean()
     .then(category => {
-      return Record.find()
+      return Record.find({ userId })
         .lean()
         .sort({ date: "desc" })
         .then(record => {
