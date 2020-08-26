@@ -1,10 +1,27 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-10">
-      <div class="form-group mt-5">
+    <div class="row col-10 justify-content-between">
+      <div class="form-group mt-5 col">
+        <select class="form-control" name="month" onchange="location = this.value">
+          <option value="/" selected>所有月份</option>
+          <option value="/filter/Jan" {{#ifEqual params 'Jan'}} selected {{/ifEqual}}>Jan</option>
+          <option value="/filter/Feb" {{#ifEqual params 'Feb'}} selected {{/ifEqual}}>Feb</option>
+          <option value="/filter/Mar" {{#ifEqual params 'Mar'}} selected {{/ifEqual}}>Mar</option>
+          <option value="/filter/Apr" {{#ifEqual params 'Apr'}} selected {{/ifEqual}}>Apr</option>
+          <option value="/filter/May" {{#ifEqual params 'May'}} selected {{/ifEqual}}>May</option>
+          <option value="/filter/Jun" {{#ifEqual params 'Jun'}} selected {{/ifEqual}}>Jun</option>
+          <option value="/filter/Jul" {{#ifEqual params 'Jul'}} selected {{/ifEqual}}>Jul</option>
+          <option value="/filter/Aug" {{#ifEqual params 'Aug'}} selected {{/ifEqual}}>Aug</option>
+          <option value="/filter/Sep" {{#ifEqual params 'Sep'}} selected {{/ifEqual}}>Sep</option>
+          <option value="/filter/Oct" {{#ifEqual params 'Oct'}} selected {{/ifEqual}}>Oct</option>
+          <option value="/filter/Nov" {{#ifEqual params 'Nov'}} selected {{/ifEqual}}>Nov</option>
+          <option value="/filter/Dec" {{#ifEqual params 'Dec'}} selected {{/ifEqual}}>Dec</option>
+        </select>
+      </div>
+      <div class="form-group mt-5 col">
         {{!-- <form action="/filter/{{this.id}}"> --}}
         <select class="form-control" name="category" onchange="location = this.value">
-          <option value="/" selected>類別</option>
+          <option value="/" selected>所有類別</option>
           <option value="/filter/餐飲食品" {{#ifEqual params '餐飲食品'}} selected {{/ifEqual}}>餐飲食品</option>
           <option value="/filter/交通出行" {{#ifEqual params '交通出行'}} selected {{/ifEqual}}>交通出行</option>
           <option value="/filter/家居物業" {{#ifEqual params '家居物業'}} selected {{/ifEqual}}>家居物業</option>
@@ -23,7 +40,7 @@
       <h1 class="text-warning text-right">{{ totalAmount }}</h1>
     </div>
   </div>
-  <div class="row justify-content-center m-5">
+  <div class="row justify-content-center m-3">
     <a href="/records/new" class="btn btn-outline-primary col-6">新增支出</a>
   </div>
   <div class="row justify-content-center">

@@ -1,58 +1,44 @@
 <div class="container mt-3">
-  <form action="/records/{{ record._id }}?_method=PUT" method="POST">
-    <div class="row justify-content-start">
-      <div class="col-4">
-        <p class="text-right">*必填欄位</p>
-      </div>
-      <div class="col-4">
-        <h4>請修改你的支出</h4>
-      </div>
-    </div>
-    <div class="row justify-content-start align-items-center">
-      <div class="col-4">
-        <p class="text-right m-1">名稱 * :</p>
-      </div>
-      <div class="input-group col-4">
-        <input class="form-control" type="text" name="name" value="{{ record.name }}">
-      </div>
-    </div>
-    <div class="row justify-content-start align-items-center mt-3">
-      <div class="col-4">
-        <p class="text-right m-1">日期 * :</p>
-      </div>
-      <div class="col-4">
-        <input type="date" name="date" value="{{ record.date }}" class="form-control">
-      </div>
-    </div>
-    <div class="row justify-content-start align-items-center mt-3">
-      <div class="col-4">
-        <p class="text-right m-1">類別 * :</p>
-      </div>
-      <div class="col-4">
-        <div class="input-group">
-          <select class="form-control" name="category">
-            <option {{#ifEqual record.category '餐飲食品'}}selected{{/ifEqual}}>餐飲食品</option>
-            <option {{#ifEqual record.category '交通出行'}}selected{{/ifEqual}}>交通出行</option>
-            <option {{#ifEqual record.category '家居物業'}}selected{{/ifEqual}}>家居物業</option>
-            <option {{#ifEqual record.category '休閒娛樂'}}selected{{/ifEqual}}>休閒娛樂</option>
-            <option {{#ifEqual record.category '其他'}}selected{{/ifEqual}}>其他</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="row justify-content-start align-items-center mt-3">
-      <div class="col-4">
-        <p class="text-right m-1">金額 * :</p>
-      </div>
-      <div class="col-4">
-        <input type="number" class="form-control" name="amount" min="0" value="{{ record.amount }}">
+  <div class="row mt-3">
+    <div class="col-6 m-auto">
+      <div class="card card-body">
+        <h4 class="text-center">請輸入你的支出</h4>
+        <h6>* 為必填欄位</h6>
+        <form action="/records/{{ record._id }}?_method=PUT" method="POST">
+          <div class="form-group">
+            <label for="name">* 名稱 :</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="請輸入名稱" value="{{ record.name }}">
+          </div>
+          <div class="form-group">
+            <label for="date">* 日期 :</label>
+            <input type="date" id="date" name="date" class="form-control" value="{{ record.date }}">
+          </div>
+          <div class="form-group">
+            <label for="category">* 類別 :</label>
+            <div class="input-group">
+              <select class="form-control" name="category">
+                <option {{#ifEqual record.category '餐飲食品'}}selected{{/ifEqual}}>餐飲食品</option>
+                <option {{#ifEqual record.category '交通出行'}}selected{{/ifEqual}}>交通出行</option>
+                <option {{#ifEqual record.category '家居物業'}}selected{{/ifEqual}}>家居物業</option>
+                <option {{#ifEqual record.category '休閒娛樂'}}selected{{/ifEqual}}>休閒娛樂</option>
+                <option {{#ifEqual record.category '其他'}}selected{{/ifEqual}}>其他</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="merchant">商家 :</label>
+            <input type="text" id="merchant" name="merchant" class="form-control" placeholder="請輸入商家名稱"
+              value="{{ record.merchant }}">
+          </div>
+          <div class="form-group">
+            <label for="amount">* 金額 :</label>
+            <input type="text" id="amount" name="amount" class="form-control" placeholder="請輸入金額"
+              value="{{ record.amount }}">
+          </div>
+          <button type="submit" class="btn btn-outline-success btn-block">修改支出</button>
+          <a href="/" class="btn btn-outline-secondary mt-2 btn-block">返回</a>
+        </form>
       </div>
     </div>
-    <div class="row justify-content-center mt-3">
-      <button type="submit" class="btn btn-outline-primary col-4">修改支出</button>
-    </div>
-    <div class="row justify-content-center mt-3">
-      <a href="/" class="btn btn-outline-secondary">返回</a>
-    </div>
-  </form>
+  </div>
 </div>
