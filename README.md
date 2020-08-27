@@ -7,14 +7,10 @@
 - 可刪除單筆花費
 - 可記錄總花費金額
 - 可依類別篩選
-
-# 環境建置與需求
-- Node.js: v10.15.0
-- Express: v4.17.1
-- Express-Handlebars: v5.1.0
-- body-parser: v1.19.0
-- mongoose: v5.9.25
-- method-override: v3.0.0",
+- 可依月份篩選
+  
+# 預覽畫面
+![Getting Started](./expencetracker.png)
 
 # 安裝與執行步驟
 1. 下載專案
@@ -31,3 +27,17 @@
 
 5. 執行程式
 > npm run dev
+
+# 環境建置與需求
+- bcryptjs: ^2.4.3
+- body-parser: ^1.19.0
+- connect-flash: ^0.1.1
+- dotenv: ^8.2.0
+- express: ^4.17.1
+- express-handlebars: ^5.1.0
+- express-session: ^1.17.1
+- method-override: ^3.0.0
+- mongoose: ^5.9.27
+- passport: ^0.4.1
+- passport-facebook: ^3.0.0
+- passport-local: ^1.0.0
