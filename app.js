@@ -29,8 +29,8 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-Handlebars.registerHelper('ifEqual', function (category1, category2, options) {
-  if (category1 === category2) {
+Handlebars.registerHelper('ifEqual', function (ogj1, obj2, options) {
+  if (ogj1 === obj2) {
     return options.fn(this)
   } else {
     return options.inverse(this)

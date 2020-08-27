@@ -6,20 +6,15 @@ const Category = require('../../models/category')
 
 router.get('/', (req, res) => {
   const userId = req.user._id
-  Category.find()
+  return Record.find({ userId })
     .lean()
-    .then(category => {
-      return Record.find({ userId })
-        .lean()
-        .sort({ date: "desc" })
-        .then(record => {
-          let totalAmount = 0
-          if (record.length !== 0) {
-            totalAmount = record.map(record => record.amount).reduce((a, b) => a + b)
-          }
-          res.render('index', { record, category, totalAmount })
-        })
-        .catch(error => console.log(error))
+    .sort({ date: "desc" })
+    .then(record => {
+      let totalAmount = 0
+      if (record.length !== 0) {
+        totalAmount = record.map(record => record.amount).reduce((a, b) => a + b)
+      }
+      res.render('index', { record, totalAmount })
     })
     .catch(error => console.log(error))
 })

@@ -4,29 +4,30 @@
       <div class="form-group mt-5 col">
         <select class="form-control" name="month" onchange="location = this.value">
           <option value="/" selected>所有月份</option>
-          <option value="/filter/Jan" {{#ifEqual params 'Jan'}} selected {{/ifEqual}}>Jan</option>
-          <option value="/filter/Feb" {{#ifEqual params 'Feb'}} selected {{/ifEqual}}>Feb</option>
-          <option value="/filter/Mar" {{#ifEqual params 'Mar'}} selected {{/ifEqual}}>Mar</option>
-          <option value="/filter/Apr" {{#ifEqual params 'Apr'}} selected {{/ifEqual}}>Apr</option>
-          <option value="/filter/May" {{#ifEqual params 'May'}} selected {{/ifEqual}}>May</option>
-          <option value="/filter/Jun" {{#ifEqual params 'Jun'}} selected {{/ifEqual}}>Jun</option>
-          <option value="/filter/Jul" {{#ifEqual params 'Jul'}} selected {{/ifEqual}}>Jul</option>
-          <option value="/filter/Aug" {{#ifEqual params 'Aug'}} selected {{/ifEqual}}>Aug</option>
-          <option value="/filter/Sep" {{#ifEqual params 'Sep'}} selected {{/ifEqual}}>Sep</option>
-          <option value="/filter/Oct" {{#ifEqual params 'Oct'}} selected {{/ifEqual}}>Oct</option>
-          <option value="/filter/Nov" {{#ifEqual params 'Nov'}} selected {{/ifEqual}}>Nov</option>
-          <option value="/filter/Dec" {{#ifEqual params 'Dec'}} selected {{/ifEqual}}>Dec</option>
+          <option value="/filter/month/2020-01" {{#ifEqual params '2020-01'}} selected {{/ifEqual}}>2020-01</option>
+          <option value="/filter/month/2020-02" {{#ifEqual params '2020-02'}} selected {{/ifEqual}}>2020-02</option>
+          <option value="/filter/month/2020-03" {{#ifEqual params '2020-03'}} selected {{/ifEqual}}>2020-03</option>
+          <option value="/filter/month/2020-04" {{#ifEqual params '2020-04'}} selected {{/ifEqual}}>2020-04</option>
+          <option value="/filter/month/2020-05" {{#ifEqual params '2020-05'}} selected {{/ifEqual}}>2020-05</option>
+          <option value="/filter/month/2020-06" {{#ifEqual params '2020-06'}} selected {{/ifEqual}}>2020-06</option>
+          <option value="/filter/month/2020-07" {{#ifEqual params '2020-07'}} selected {{/ifEqual}}>2020-07</option>
+          <option value="/filter/month/2020-08" {{#ifEqual params '2020-08'}} selected {{/ifEqual}}>2020-08
+          </option>
+          <option value="/filter/month/2020-09" {{#ifEqual params '2020-09'}} selected {{/ifEqual}}>2020-09</option>
+          <option value="/filter/month/2020-10" {{#ifEqual params '2020-10'}} selected {{/ifEqual}}>2020-10</option>
+          <option value="/filter/month/2020-11" {{#ifEqual params '2020-11'}} selected {{/ifEqual}}>2020-11</option>
+          <option value="/filter/month/2020-12" {{#ifEqual params '2020-12'}} selected {{/ifEqual}}>2020-12</option>
         </select>
       </div>
       <div class="form-group mt-5 col">
         {{!-- <form action="/filter/{{this.id}}"> --}}
         <select class="form-control" name="category" onchange="location = this.value">
           <option value="/" selected>所有類別</option>
-          <option value="/filter/餐飲食品" {{#ifEqual params '餐飲食品'}} selected {{/ifEqual}}>餐飲食品</option>
-          <option value="/filter/交通出行" {{#ifEqual params '交通出行'}} selected {{/ifEqual}}>交通出行</option>
-          <option value="/filter/家居物業" {{#ifEqual params '家居物業'}} selected {{/ifEqual}}>家居物業</option>
-          <option value="/filter/休閒娛樂" {{#ifEqual params '休閒娛樂'}} selected {{/ifEqual}}>休閒娛樂</option>
-          <option value="/filter/其他" {{#ifEqual params '其他'}} selected {{/ifEqual}}>其他</option>
+          <option value="/filter/category/餐飲食品" {{#ifEqual params '餐飲食品'}} selected {{/ifEqual}}>餐飲食品</option>
+          <option value="/filter/category/交通出行" {{#ifEqual params '交通出行'}} selected {{/ifEqual}}>交通出行</option>
+          <option value="/filter/category/家居物業" {{#ifEqual params '家居物業'}} selected {{/ifEqual}}>家居物業</option>
+          <option value="/filter/category/休閒娛樂" {{#ifEqual params '休閒娛樂'}} selected {{/ifEqual}}>休閒娛樂</option>
+          <option value="/filter/category/其他" {{#ifEqual params '其他'}} selected {{/ifEqual}}>其他</option>
         </select>
         {{!-- </form> --}}
       </div>
@@ -66,7 +67,10 @@
 
           <div class="col ml-2">
             <h4 class="mb-0">{{ this.name }}</h4>
-            <p class="date mb-0">{{ this.date }}</p>
+            <div class="row mt-1">
+              <p class="mb-0">{{ this.date }}</p>
+              <p class="mb-0 ml-3">#{{ this.merchant}}</p>
+            </div>
           </div>
           <h3 class="col-2 m-0 pl-0 text-center">{{ this.amount }}</h3>
           <form action="/records/{{ this._id }}/edit" class="col-2 row justify-content-end">
