@@ -13,7 +13,7 @@ if (process.env.NODE_ENV !== 'production') {
 const routes = require('./routes')
 const usePassport = require('./config/passport')
 require('./config/mongoose')
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3000
 const app = express()
 const Handlebars = require('handlebars')
 
@@ -21,7 +21,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main', extname: 'handlebars' }
 app.set('view engine', 'handlebars')
 
 app.use(session({
-  secret: 'ThisIsExpenseTrackerSecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
