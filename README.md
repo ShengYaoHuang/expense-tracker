@@ -12,6 +12,10 @@
 # 預覽畫面
 ![Getting Started](./expencetracker.png)
 
+# 測試資料
+Email: user@gmail.com
+password: 0000
+
 # 安裝與執行步驟
 1. 下載專案
 > git clone https://github.com/ShengYaoHuang/expense-tracker.git
