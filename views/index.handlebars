@@ -11,8 +11,7 @@
           <option value="/filter/month/2020-05" {{#ifEqual params '2020-05'}} selected {{/ifEqual}}>2020-05</option>
           <option value="/filter/month/2020-06" {{#ifEqual params '2020-06'}} selected {{/ifEqual}}>2020-06</option>
           <option value="/filter/month/2020-07" {{#ifEqual params '2020-07'}} selected {{/ifEqual}}>2020-07</option>
-          <option value="/filter/month/2020-08" {{#ifEqual params '2020-08'}} selected {{/ifEqual}}>2020-08
-          </option>
+          <option value="/filter/month/2020-08" {{#ifEqual params '2020-08'}} selected {{/ifEqual}}>2020-08</option>
           <option value="/filter/month/2020-09" {{#ifEqual params '2020-09'}} selected {{/ifEqual}}>2020-09</option>
           <option value="/filter/month/2020-10" {{#ifEqual params '2020-10'}} selected {{/ifEqual}}>2020-10</option>
           <option value="/filter/month/2020-11" {{#ifEqual params '2020-11'}} selected {{/ifEqual}}>2020-11</option>
@@ -69,7 +68,7 @@
             <h4 class="mb-0">{{ this.name }}</h4>
             <div class="row mt-1">
               <p class="mb-0">{{ this.date }}</p>
-              <p class="mb-0 ml-3">#{{ this.merchant}}</p>
+              <p class="mb-0 ml-3">{{#if merchant}}#{{/if}}{{ this.merchant}}</p>
             </div>
           </div>
           <h3 class="col-2 m-0 pl-0 text-center">{{ this.amount }}</h3>
